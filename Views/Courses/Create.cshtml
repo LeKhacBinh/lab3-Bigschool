@@ -1,9 +1,6 @@
-﻿@model  lab3.ViewModels.CourseViewModel
-@{
-    ViewBag.Title = "Create";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
-
+﻿@model lab3.ViewModels.CourseViewModel
+@using (Html.BeginForm("Create", "Courses"))
+{
 <h2>Create</h2>
 <form>
     <div class="form-group">
@@ -28,3 +25,4 @@
     <div class="form-group"></div>
     <div class="form-group"></div>
 </form>
+}
