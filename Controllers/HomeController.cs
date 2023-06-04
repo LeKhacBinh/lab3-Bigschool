@@ -1,6 +1,8 @@
 ﻿using lab3.Models;
+using lab3.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -17,11 +19,11 @@ namespace lab3.Controllers
         }
         public ActionResult Index()
         {
-            var upcommingCourses = _dbContext.Courses
-                .Include(c => c.Lecturer)
-                .Include(c => c.Category)
+            var upcomingCourses = _dbContext.Courses
+                .Include(c=>c.Lecturer)
+                .Include(c=>c.Category)
                 .Where(c => c.DateTime > DateTime.Now);
-            return View(upcommingCourses);
+            return View(upcomingCourses);
         }
 
         public ActionResult About()
