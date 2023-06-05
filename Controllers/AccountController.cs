@@ -151,7 +151,7 @@ namespace lab3.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, Name = model.Name };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -198,7 +198,7 @@ namespace lab3.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> ForgotPassword(ForgotPasswordViewModel model)
+        public async Task<ActionResult> ForgotPassword(RegisterViewModel.ForgotPasswordViewModel model)
         {
             if (ModelState.IsValid)
             {
@@ -242,7 +242,7 @@ namespace lab3.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> ResetPassword(ResetPasswordViewModel model)
+        public async Task<ActionResult> ResetPassword(RegisterViewModel.ResetPasswordViewModel model)
         {
             if (!ModelState.IsValid)
             {
